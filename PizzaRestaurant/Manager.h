@@ -10,10 +10,19 @@
 #import "KitchenDelegate.h"
 #import "Kitchen.h"
 #import "Pizza.h"
+#import "DeliveryService.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class DeliveryService;
+
 @interface Manager : NSObject <KitchenDelegate>
+
+@property (nonatomic) DeliveryService *deliveryService;
+
+- (BOOL)kitchen:(Kitchen *)kitchen shouldMakePizzaOfSize:(PizzaSize)size andToppings:(NSArray *)toppings;
+- (BOOL)kitchenShouldUpgradeOrder:(Kitchen *)kitchen;
+
 
 @end
 
